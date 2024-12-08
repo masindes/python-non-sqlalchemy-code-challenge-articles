@@ -36,6 +36,7 @@ class Article:
             self._author = new_author
         else:
             raise TypeError('Author must be an instance of Author')
+        # pass 
         
 class Author:
     def __init__(self, name):
@@ -60,13 +61,16 @@ class Author:
                 raise TypeError('Name must be a string')
 
     def articles(self):
-        pass
+        return [article for article in Article.all if self == article.author]
+        # pass
 
     def magazines(self):
-        pass
+        return list({article.magazine for article in self.articles()})
+        # pass
 
     def add_article(self, magazine, title):
-        pass
+        return Article(self, magazine, title)
+        # pass
 
     def topic_areas(self):
         pass
